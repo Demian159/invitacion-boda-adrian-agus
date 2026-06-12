@@ -43,7 +43,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=header-mobile-center-1">
+    <link rel="stylesheet" href="styles.css?v=mobile-hero-header-1">
   </head>
   <body class="intro-active">
     <div
@@ -104,12 +104,10 @@
 
     <main>
       <section id="inicio" class="hero">
-        <img
-          class="hero-art"
-          src="assets/lilies-hero.png"
-          alt=""
-          aria-hidden="true"
-        >
+        <picture class="hero-art" aria-hidden="true">
+          <source media="(max-width: 41.99rem)" srcset="assets/lilies-hero-mobile.jpg">
+          <img src="assets/lilies-hero.png" alt="">
+        </picture>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
           <p class="eyebrow">Nos casamos</p>

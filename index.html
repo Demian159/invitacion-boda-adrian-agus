@@ -302,6 +302,23 @@
       <p>Adrián y Agus · 07.02.2027</p>
     </footer>
 
+    <div class="music-player" data-state="loading">
+      <div id="youtube-player" class="youtube-player" aria-hidden="true"></div>
+      <button
+        id="music-toggle"
+        class="music-toggle"
+        type="button"
+        aria-label="Reproducir música"
+        aria-pressed="false"
+      >
+        <span class="music-icon" aria-hidden="true"></span>
+        <span class="music-copy">
+          <span class="music-title">Música</span>
+          <span id="music-status" class="music-status">Preparando canción</span>
+        </span>
+      </button>
+    </div>
+
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script src="script.js" defer></script>
   </body>

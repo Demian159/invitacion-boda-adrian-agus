@@ -43,7 +43,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=intro-lily-1">
+    <link rel="stylesheet" href="styles.css?v=nav-asistencia-1">
   </head>
   <body class="intro-active">
     <div
@@ -90,11 +90,18 @@
     <header class="site-header" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="Volver al inicio">A&A</a>
       <nav class="nav-links" aria-label="Secciones">
+        <a href="#inicio">Inicio</a>
+        <a href="#cuenta-regresiva">Cuenta regresiva</a>
         <a href="#evento">Evento</a>
-        <a href="#rsvp">RSVP</a>
-        <a href="#info">Info</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#asistencia">Asistencia</a>
+        <a href="#dress-code">Dress code</a>
+        <a href="#regalos">Regalos</a>
+        <a href="#musica">Música</a>
+        <a href="#fotos">Fotos</a>
+        <a href="#calendario">Calendario</a>
       </nav>
-      <a class="header-action" href="#rsvp">Confirmar</a>
+      <a class="header-action" href="#asistencia">Confirmar</a>
     </header>
 
     <main>
@@ -112,13 +119,13 @@
           <p class="hero-message">Queremos compartir nuestro gran día con vos.</p>
           <p class="hero-date">Domingo 7 de febrero de 2027 · 19:30 hs</p>
           <div class="hero-actions" aria-label="Acciones principales">
-            <a class="button button-primary" href="#rsvp">Confirmar asistencia</a>
+            <a class="button button-primary" href="#asistencia">Confirmar asistencia</a>
             <a class="button button-secondary" href="#ubicacion">Ver ubicación</a>
           </div>
         </div>
       </section>
 
-      <section class="countdown-band" aria-labelledby="countdown-title">
+      <section id="cuenta-regresiva" class="countdown-band" aria-labelledby="countdown-title">
         <div class="section-inner compact">
           <p class="eyebrow">Falta</p>
           <h2 id="countdown-title">La cuenta regresiva</h2>
@@ -210,14 +217,14 @@
         </div>
       </section>
 
-      <section id="rsvp" class="section rsvp-section" aria-labelledby="rsvp-title">
+      <section id="asistencia" class="section attendance-section" aria-labelledby="asistencia-title">
         <div class="section-inner split">
           <div class="section-copy">
-            <p class="eyebrow">RSVP</p>
-            <h2 id="rsvp-title">Confirmá tu asistencia</h2>
+            <p class="eyebrow">Asistencia</p>
+            <h2 id="asistencia-title">Confirmá tu asistencia</h2>
             <p>
-              Vamos a preparar un formulario para confirmar asistencia. Mientras
-              tanto, queda disponible WhatsApp como segunda opción.
+              Completá el formulario para ayudarnos a organizar la celebración.
+              Si preferís, también podés escribirnos por WhatsApp.
             </p>
           </div>
 
@@ -225,7 +232,7 @@
             <a
               class="button button-primary wide"
               href="https://docs.google.com/forms/d/e/1FAIpQLSeePu3HN_Zqwn6lcRlMtA3a6uW_HmOUI8XXRUu1Yjd9jRwKdA/viewform"
-              data-pending-message="El formulario de RSVP todavía está pendiente."
+              data-pending-message="El formulario de asistencia todavía está pendiente."
             >
               Confirmar por Google Forms
             </a>
@@ -249,13 +256,13 @@
           </div>
 
           <div class="info-grid">
-            <article class="info-card">
+            <article id="dress-code" class="info-card">
               <p class="card-label">Dress code</p>
               <h3>Elegante sport</h3>
               <p>Elegí algo cómodo para celebrar, cenar y bailar.</p>
             </article>
 
-            <article class="info-card">
+            <article id="regalos" class="info-card">
               <p class="card-label">Regalos</p>
               <h3>Mercado Pago</h3>
               <dl class="gift-data">
@@ -282,7 +289,7 @@
               </div>
             </article>
 
-            <article class="info-card">
+            <article id="musica" class="info-card">
               <p class="card-label">Música</p>
               <h3>Sumá una canción</h3>
               <p>Dejanos ese tema que querés escuchar en la fiesta.</p>
@@ -295,7 +302,7 @@
               </a>
             </article>
 
-            <article class="info-card">
+            <article id="fotos" class="info-card">
               <p class="card-label">Fotos</p>
               <h3>Álbum compartido</h3>
               <p>Después de la boda vamos a reunir las fotos en Google Photos.</p>
@@ -361,6 +368,6 @@
     </div>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script src="script.js?v=intro-lily-1" defer></script>
+    <script src="script.js?v=nav-asistencia-1" defer></script>
   </body>
 </html>

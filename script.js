@@ -14,6 +14,12 @@ const musicPlayer = document.querySelector(".music-player");
 const musicToggle = document.getElementById("music-toggle");
 const musicStatus = document.getElementById("music-status");
 const youtubeVideoId = "vGJTaP6anOU";
+const exchangeRateNote = document.getElementById("exchange-rate-note");
+const contributionAmountNodes = document.querySelectorAll("[data-usd]");
+const dollarRatesUrl = "https://dolarapi.com/v1/dolares";
+const fallbackDollarRate = 1455;
+const fallbackDollarName = "oficial";
+const exchangeRefreshMs = 10 * 60 * 1000;
 
 let toastTimer;
 let youtubePlayer;
@@ -53,6 +59,80 @@ function updateCountdown() {
   countdownNodes.hours.textContent = pad(hours);
   countdownNodes.minutes.textContent = pad(minutes);
   countdownNodes.seconds.textContent = pad(seconds);
+}
+
+function formatCurrencyARS(value) {
+  return new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
+
+function formatRate(value) {
+  return new Intl.NumberFormat("es-AR", {
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
+function updateContributionAmounts(rate, rateName, updatedAt) {
+  contributionAmountNodes.forEach((node) => {
+    const amount = Number(node.dataset.usd);
+
+    if (!Number.isFinite(amount)) {
+      return;
+    }
+
+    node.textContent = formatCurrencyARS(amount * rate);
+  });
+
+  if (!exchangeRateNote) {
+    return;
+  }
+
+  const hasValidDate = updatedAt instanceof Date && !Number.isNaN(updatedAt.getTime());
+  const dateText = hasValidDate
+    ? ` Actualizado ${new Intl.DateTimeFormat("es-AR", {
+        dateStyle: "short",
+        timeStyle: "short",
+      }).format(updatedAt)}.`
+    : "";
+
+  exchangeRateNote.textContent = `Estimado con dólar ${rateName} venta a $${formatRate(rate)}, el valor más alto entre oficial y blue.${dateText} Se actualiza cada 10 minutos.`;
+}
+
+function pickHighestDollarRate(rates) {
+  const candidates = rates
+    .filter((rate) => rate.casa === "oficial" || rate.casa === "blue")
+    .map((rate) => ({
+      name: rate.nombre || rate.casa,
+      value: Number(rate.venta),
+      updatedAt: rate.fechaActualizacion ? new Date(rate.fechaActualizacion) : null,
+    }))
+    .filter((rate) => Number.isFinite(rate.value));
+
+  return candidates.sort((a, b) => b.value - a.value)[0];
+}
+
+async function updateExchangeRate() {
+  try {
+    const response = await fetch(dollarRatesUrl, { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error("No se pudo consultar la cotización.");
+    }
+
+    const rates = await response.json();
+    const highestRate = pickHighestDollarRate(rates);
+
+    if (!highestRate) {
+      throw new Error("No se encontró cotización oficial o blue.");
+    }
+
+    updateContributionAmounts(highestRate.value, highestRate.name.toLowerCase(), highestRate.updatedAt);
+  } catch {
+    updateContributionAmounts(fallbackDollarRate, fallbackDollarName, null);
+  }
 }
 
 function isPlaceholderHref(href) {
@@ -241,3 +321,5 @@ if (introEnter) {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+updateExchangeRate();
+setInterval(updateExchangeRate, exchangeRefreshMs);

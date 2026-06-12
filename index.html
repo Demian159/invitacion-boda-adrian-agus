@@ -43,7 +43,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=nav-asistencia-1">
+    <link rel="stylesheet" href="styles.css?v=tarjeta-invitacion-1">
   </head>
   <body class="intro-active">
     <div
@@ -96,7 +96,7 @@
         <a href="#ubicacion">Ubicación</a>
         <a href="#asistencia">Asistencia</a>
         <a href="#dress-code">Dress code</a>
-        <a href="#regalos">Regalos</a>
+        <a href="#tarjeta">Tarjeta</a>
         <a href="#musica">Música</a>
         <a href="#fotos">Fotos</a>
         <a href="#calendario">Calendario</a>
@@ -262,30 +262,98 @@
               <p>Elegí algo cómodo para celebrar, cenar y bailar.</p>
             </article>
 
-            <article id="regalos" class="info-card">
-              <p class="card-label">Regalos</p>
-              <h3>Mercado Pago</h3>
-              <dl class="gift-data">
+            <article id="tarjeta" class="info-card contribution-card">
+              <p class="card-label">Tarjeta de invitación</p>
+              <h3>Gracias por acompañarnos</h3>
+              <p>
+                En lugar de regalos, si está dentro de sus posibilidades, les
+                agradeceríamos que nos ayuden cubriendo la tarjeta de invitación.
+                La referencia es de USD 90 por adulto y USD 45 por niño. Lo más
+                importante para nosotros es compartir este día con ustedes.
+              </p>
+
+              <div class="contribution-values" aria-label="Valores de referencia">
                 <div>
-                  <dt>Titular</dt>
-                  <dd>Agustina Acosta</dd>
+                  <span>Adultos</span>
+                  <strong>USD 90</strong>
+                  <small>aprox. <span id="adult-ars" data-usd="90">$130.950</span></small>
                 </div>
                 <div>
-                  <dt>CBU</dt>
-                  <dd>0000003100087204359859</dd>
+                  <span>Niños</span>
+                  <strong>USD 45</strong>
+                  <small>aprox. <span id="child-ars" data-usd="45">$65.475</span></small>
                 </div>
-                <div>
-                  <dt>Alias</dt>
-                  <dd>agustina.acosta.uwu</dd>
-                </div>
-              </dl>
-              <div class="copy-actions">
-                <button type="button" data-copy="0000003100087204359859">
-                  Copiar CBU
-                </button>
-                <button type="button" data-copy="agustina.acosta.uwu">
-                  Copiar alias
-                </button>
+              </div>
+
+              <p id="exchange-rate-note" class="rate-note">
+                Estimado con dólar oficial venta a $1455. Se actualiza cada 10 minutos.
+              </p>
+              <p class="rate-source">
+                El importe en pesos es orientativo y se calcula con la venta más alta
+                entre dólar oficial y blue. Podés revisar la cotización en
+                <a href="https://www.dolarito.ar/" target="_blank" rel="noreferrer">Dolarito</a>.
+              </p>
+
+              <div class="account-list">
+                <section aria-labelledby="pesos-account-title">
+                  <h4 id="pesos-account-title">Cuenta en pesos</h4>
+                  <dl class="gift-data">
+                    <div>
+                      <dt>Titular</dt>
+                      <dd>Agustina Acosta</dd>
+                    </div>
+                    <div>
+                      <dt>CBU</dt>
+                      <dd>0000003100087204359859</dd>
+                    </div>
+                    <div>
+                      <dt>Alias</dt>
+                      <dd>agustina.acosta.uwu</dd>
+                    </div>
+                    <div>
+                      <dt>Plataforma</dt>
+                      <dd>Mercado Pago</dd>
+                    </div>
+                  </dl>
+                  <div class="copy-actions">
+                    <button type="button" data-copy="0000003100087204359859">
+                      Copiar CBU
+                    </button>
+                    <button type="button" data-copy="agustina.acosta.uwu">
+                      Copiar alias
+                    </button>
+                  </div>
+                </section>
+
+                <section aria-labelledby="dollars-account-title">
+                  <h4 id="dollars-account-title">Cuenta en dólares</h4>
+                  <dl class="gift-data">
+                    <div>
+                      <dt>Titular</dt>
+                      <dd>Agustina del Valle Acosta</dd>
+                    </div>
+                    <div>
+                      <dt>CBU</dt>
+                      <dd>3220001888044162170016</dd>
+                    </div>
+                    <div>
+                      <dt>Alias</dt>
+                      <dd>indigo.pesaba.vocero</dd>
+                    </div>
+                    <div>
+                      <dt>Plataforma</dt>
+                      <dd>Mercado Pago</dd>
+                    </div>
+                  </dl>
+                  <div class="copy-actions">
+                    <button type="button" data-copy="3220001888044162170016">
+                      Copiar CBU
+                    </button>
+                    <button type="button" data-copy="indigo.pesaba.vocero">
+                      Copiar alias
+                    </button>
+                  </div>
+                </section>
               </div>
             </article>
 
@@ -368,6 +436,6 @@
     </div>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script src="script.js?v=nav-asistencia-1" defer></script>
+    <script src="script.js?v=tarjeta-invitacion-1" defer></script>
   </body>
 </html>

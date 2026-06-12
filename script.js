@@ -7,6 +7,9 @@ const countdownNodes = {
   seconds: document.getElementById("seconds"),
 };
 
+const introScreen = document.querySelector(".intro-screen");
+const introEnter = document.getElementById("intro-enter");
+const introStatus = document.getElementById("intro-status");
 const toast = document.getElementById("toast");
 const musicPlayer = document.querySelector(".music-player");
 const musicToggle = document.getElementById("music-toggle");
@@ -15,6 +18,7 @@ const youtubeVideoId = "vGJTaP6anOU";
 
 let toastTimer;
 let youtubePlayer;
+let playMusicWhenReady = false;
 
 function showToast(message) {
   toast.textContent = message;
@@ -67,12 +71,33 @@ function setMusicState(state, status) {
   musicToggle.setAttribute("aria-label", state === "playing" ? "Pausar música" : "Reproducir música");
 }
 
-function attemptAutoplay() {
+function setIntroStatus(message) {
+  if (introStatus) {
+    introStatus.textContent = message;
+  }
+}
+
+function closeIntroScreen() {
+  if (!introScreen) {
+    return;
+  }
+
+  document.body.classList.remove("intro-active");
+  introScreen.classList.add("is-hidden");
+  introScreen.setAttribute("aria-hidden", "true");
+}
+
+function playMusicFromIntent() {
   if (!youtubePlayer) {
+    playMusicWhenReady = true;
+    setIntroStatus("Preparando música...");
+    setMusicState("loading", "Preparando canción");
+    loadYouTubeApi();
     return;
   }
 
   try {
+    playMusicWhenReady = false;
     setMusicState("loading", "Intentando reproducir");
     youtubePlayer.unMute();
     youtubePlayer.setVolume(70);
@@ -93,7 +118,12 @@ function attemptAutoplay() {
 }
 
 function onYouTubePlayerReady() {
-  attemptAutoplay();
+  setIntroStatus("La música está lista.");
+  setMusicState("paused", "Lista para escuchar");
+
+  if (playMusicWhenReady) {
+    playMusicFromIntent();
+  }
 }
 
 function onYouTubePlayerStateChange(event) {
@@ -124,7 +154,7 @@ function createYouTubePlayer() {
     height: "1",
     videoId: youtubeVideoId,
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
       controls: 0,
       disablekb: 1,
       fs: 0,
@@ -158,14 +188,19 @@ function loadYouTubeApi() {
   tag.async = true;
   tag.onerror = () => {
     setMusicState("blocked", "No se pudo cargar");
+    setIntroStatus("Podés entrar igual y activar la música después.");
   };
   document.head.appendChild(tag);
 }
 
+function enterInvitation() {
+  closeIntroScreen();
+  playMusicFromIntent();
+}
+
 function toggleMusic() {
   if (!youtubePlayer) {
-    setMusicState("loading", "Preparando canción");
-    loadYouTubeApi();
+    playMusicFromIntent();
     return;
   }
 
@@ -176,10 +211,7 @@ function toggleMusic() {
     return;
   }
 
-  youtubePlayer.unMute();
-  youtubePlayer.setVolume(70);
-  youtubePlayer.playVideo();
-  setMusicState("loading", "Intentando reproducir");
+  playMusicFromIntent();
 }
 
 document.querySelectorAll("a[href]").forEach((link) => {
@@ -211,6 +243,10 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
 if (musicToggle) {
   musicToggle.addEventListener("click", toggleMusic);
   loadYouTubeApi();
+}
+
+if (introEnter) {
+  introEnter.addEventListener("click", enterInvitation);
 }
 
 updateCountdown();

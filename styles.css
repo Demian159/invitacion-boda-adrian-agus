@@ -218,14 +218,46 @@ a {
   text-decoration: none;
 }
 
-.nav-links {
+.nav-scroll {
   grid-column: 1;
   justify-self: stretch;
+  position: relative;
+  margin: 0 -1rem;
+}
+
+.nav-scroll::before,
+.nav-scroll::after {
+  position: absolute;
+  top: 0.2rem;
+  bottom: 0.05rem;
+  z-index: 2;
+  width: 2.75rem;
+  display: grid;
+  place-items: center;
+  color: var(--violet-dark);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.nav-scroll::before {
+  content: "‹";
+  left: 0;
+  background: linear-gradient(90deg, rgba(252, 251, 251, 0.98) 0 48%, rgba(252, 251, 251, 0));
+}
+
+.nav-scroll::after {
+  content: "›";
+  right: 0;
+  background: linear-gradient(270deg, rgba(252, 251, 251, 0.98) 0 48%, rgba(252, 251, 251, 0));
+}
+
+.nav-links {
   display: flex;
   gap: 0.45rem;
-  margin: 0 -1rem;
   overflow-x: auto;
-  padding: 0.2rem 1rem 0.05rem;
+  padding: 0.2rem 3rem 0.05rem;
   scrollbar-width: none;
   white-space: nowrap;
 }
@@ -839,10 +871,13 @@ h3 {
     padding-inline: 1.5rem;
   }
 
-  .nav-links {
+  .nav-scroll {
     gap: 0.5rem;
     margin-inline: -1.5rem;
-    padding-inline: 1.5rem;
+  }
+
+  .nav-links {
+    padding-inline: 3rem;
   }
 
   .nav-links a {
@@ -917,8 +952,19 @@ h3 {
     padding: 0.75rem 1.5rem;
   }
 
-  .nav-links {
+  .nav-scroll {
     grid-column: auto;
+    justify-self: stretch;
+    margin: 0;
+    position: static;
+  }
+
+  .nav-scroll::before,
+  .nav-scroll::after {
+    display: none;
+  }
+
+  .nav-links {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.35rem 0.75rem;

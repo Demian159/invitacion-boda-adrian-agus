@@ -43,7 +43,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=mobile-hero-header-1">
+    <link rel="stylesheet" href="styles.css?v=nav-scroll-order-1">
   </head>
   <body class="intro-active">
     <div
@@ -89,16 +89,18 @@
 
     <header class="site-header" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="Volver al inicio">A&A</a>
-      <nav class="nav-links" aria-label="Secciones">
-        <a href="#evento">Evento</a>
-        <a href="#ubicacion">Ubicación</a>
-        <a href="#asistencia">Asistencia</a>
-        <a href="#dress-code">Dress code</a>
-        <a href="#tarjeta">Tarjeta</a>
-        <a href="#musica">Música</a>
-        <a href="#fotos">Fotos</a>
-        <a href="#calendario">Calendario</a>
-      </nav>
+      <div class="nav-scroll">
+        <nav class="nav-links" aria-label="Secciones">
+          <a href="#evento">Evento</a>
+          <a href="#ubicacion">Ubicación</a>
+          <a href="#dress-code">Dress code</a>
+          <a href="#tarjeta">Tarjeta</a>
+          <a href="#musica">Música</a>
+          <a href="#fotos">Fotos</a>
+          <a href="#asistencia">Asistencia</a>
+          <a href="#calendario">Calendario</a>
+        </nav>
+      </div>
       <a class="header-action" href="#asistencia">Confirmar</a>
     </header>
 
@@ -208,37 +210,6 @@
               rel="noreferrer"
             >
               Abrir en Google Maps
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="asistencia" class="section attendance-section" aria-labelledby="asistencia-title">
-        <div class="section-inner split">
-          <div class="section-copy">
-            <p class="eyebrow">Asistencia</p>
-            <h2 id="asistencia-title">Confirmá tu asistencia</h2>
-            <p>
-              Completá el formulario para ayudarnos a organizar la celebración.
-              Si preferís, también podés escribirnos por WhatsApp.
-            </p>
-          </div>
-
-          <div class="action-panel">
-            <a
-              class="button button-primary wide"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeePu3HN_Zqwn6lcRlMtA3a6uW_HmOUI8XXRUu1Yjd9jRwKdA/viewform"
-              data-pending-message="El formulario de asistencia todavía está pendiente."
-            >
-              Confirmar por Google Forms
-            </a>
-            <a
-              class="button button-secondary wide"
-              href="https://wa.me/5492616917067?text=Hola%21%20Queremos%20confirmar%20asistencia%20a%20la%20boda%20de%20Adri%C3%A1n%20y%20Agus."
-              target="_blank"
-              rel="noreferrer"
-            >
-              Confirmar por WhatsApp
             </a>
           </div>
         </div>
@@ -372,6 +343,37 @@
                 Ver álbum
               </a>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="asistencia" class="section attendance-section" aria-labelledby="asistencia-title">
+        <div class="section-inner split">
+          <div class="section-copy">
+            <p class="eyebrow">Asistencia</p>
+            <h2 id="asistencia-title">Confirmá tu asistencia</h2>
+            <p>
+              Completá el formulario para ayudarnos a organizar la celebración.
+              Si preferís, también podés escribirnos por WhatsApp.
+            </p>
+          </div>
+
+          <div class="action-panel">
+            <a
+              class="button button-primary wide"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeePu3HN_Zqwn6lcRlMtA3a6uW_HmOUI8XXRUu1Yjd9jRwKdA/viewform"
+              data-pending-message="El formulario de asistencia todavía está pendiente."
+            >
+              Confirmar por Google Forms
+            </a>
+            <a
+              class="button button-secondary wide"
+              href="https://wa.me/5492616917067?text=Hola%21%20Queremos%20confirmar%20asistencia%20a%20la%20boda%20de%20Adri%C3%A1n%20y%20Agus."
+              target="_blank"
+              rel="noreferrer"
+            >
+              Confirmar por WhatsApp
+            </a>
           </div>
         </div>
       </section>

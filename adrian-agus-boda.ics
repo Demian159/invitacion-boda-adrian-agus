@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Adrian y Agus//Boda//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20270207T223000Z-adrian-agus-boda
+DTSTAMP:20260612T000000Z
+DTSTART:20270207T223000Z
+DTEND:20270208T063000Z
+SUMMARY:Boda de Adrián y Agus
+DESCRIPTION:Queremos compartir nuestro gran día con vos. Ceremonia, cena y fiesta en Estancia Ludmila.
+LOCATION:Estancia Ludmila, Callejón Villanueva 1023, Luján de Cuyo, Mendoza
+END:VEVENT
+END:VCALENDAR

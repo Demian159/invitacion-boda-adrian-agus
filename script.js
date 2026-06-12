@@ -9,7 +9,6 @@ const countdownNodes = {
 
 const introScreen = document.querySelector(".intro-screen");
 const introEnter = document.getElementById("intro-enter");
-const introStatus = document.getElementById("intro-status");
 const toast = document.getElementById("toast");
 const musicPlayer = document.querySelector(".music-player");
 const musicToggle = document.getElementById("music-toggle");
@@ -71,12 +70,6 @@ function setMusicState(state, status) {
   musicToggle.setAttribute("aria-label", state === "playing" ? "Pausar música" : "Reproducir música");
 }
 
-function setIntroStatus(message) {
-  if (introStatus) {
-    introStatus.textContent = message;
-  }
-}
-
 function closeIntroScreen() {
   if (!introScreen) {
     return;
@@ -90,7 +83,6 @@ function closeIntroScreen() {
 function playMusicFromIntent() {
   if (!youtubePlayer) {
     playMusicWhenReady = true;
-    setIntroStatus("Preparando música...");
     setMusicState("loading", "Preparando canción");
     loadYouTubeApi();
     return;
@@ -118,7 +110,6 @@ function playMusicFromIntent() {
 }
 
 function onYouTubePlayerReady() {
-  setIntroStatus("La música está lista.");
   setMusicState("paused", "Lista para escuchar");
 
   if (playMusicWhenReady) {
@@ -188,7 +179,6 @@ function loadYouTubeApi() {
   tag.async = true;
   tag.onerror = () => {
     setMusicState("blocked", "No se pudo cargar");
-    setIntroStatus("Podés entrar igual y activar la música después.");
   };
   document.head.appendChild(tag);
 }

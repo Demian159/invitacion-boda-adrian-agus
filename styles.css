@@ -84,15 +84,6 @@ body.intro-active {
   width: min(100%, 34rem);
 }
 
-.intro-eyebrow {
-  margin: 0 0 0.5rem;
-  color: #d8c4ee;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
 .intro-content h2 {
   margin: 0;
   color: var(--paper);
@@ -102,11 +93,69 @@ body.intro-active {
   line-height: 0.92;
 }
 
-.intro-content p {
-  margin: 1.2rem auto 0;
-  max-width: 26rem;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 1rem;
+.intro-welcome {
+  margin: 1.8rem auto 0;
+  color: #d8c4ee;
+  font-family: var(--script);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.intro-flourish {
+  position: relative;
+  width: min(14rem, 68vw);
+  height: 2rem;
+  margin: 1.15rem auto 0;
+}
+
+.intro-flourish::before,
+.intro-flourish::after,
+.intro-flourish span::before,
+.intro-flourish span::after {
+  content: "";
+  position: absolute;
+  background: #8e5ac8;
+}
+
+.intro-flourish::before,
+.intro-flourish::after {
+  top: 50%;
+  width: 5rem;
+  height: 1px;
+  opacity: 0.78;
+}
+
+.intro-flourish::before {
+  right: calc(50% + 1.1rem);
+}
+
+.intro-flourish::after {
+  left: calc(50% + 1.1rem);
+}
+
+.intro-flourish span {
+  position: absolute;
+  inset: 0;
+}
+
+.intro-flourish span::before,
+.intro-flourish span::after {
+  top: 0.55rem;
+  left: 50%;
+  width: 0.8rem;
+  height: 1.05rem;
+  border-radius: 100% 0;
+  opacity: 0.92;
+  transform-origin: 0 100%;
+}
+
+.intro-flourish span::before {
+  transform: translateX(-0.85rem) rotate(-44deg);
+}
+
+.intro-flourish span::after {
+  transform: translateX(0.1rem) rotate(44deg) scaleX(-1);
 }
 
 .intro-button {
@@ -115,7 +164,7 @@ body.intro-active {
   justify-content: center;
   min-width: 11rem;
   min-height: 3.25rem;
-  margin-top: 2rem;
+  margin-top: 2.15rem;
   padding: 0 1.5rem;
   border: 1px solid rgba(216, 196, 238, 0.55);
   border-radius: 999px;
@@ -130,12 +179,6 @@ body.intro-active {
 .music-toggle:focus-visible {
   outline: 3px solid rgba(216, 196, 238, 0.9);
   outline-offset: 4px;
-}
-
-.intro-status {
-  min-height: 1.2rem;
-  font-size: 0.82rem;
-  font-weight: 700;
 }
 
 img,
@@ -731,6 +774,16 @@ h3 {
 
   .intro-content h2 {
     font-size: 7rem;
+  }
+
+  .intro-welcome {
+    margin-top: 2.2rem;
+    font-size: 3.25rem;
+  }
+
+  .intro-flourish {
+    width: 16rem;
+    margin-top: 1.25rem;
   }
 
   .hero-actions,

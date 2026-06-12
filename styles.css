@@ -960,19 +960,40 @@ h3 {
   }
 
   .info-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 2.05fr) minmax(15rem, 0.95fr);
+    grid-template-areas:
+      "tarjeta dress"
+      "tarjeta musica"
+      "tarjeta fotos";
+    align-items: stretch;
+  }
+
+  #tarjeta {
+    grid-area: tarjeta;
+  }
+
+  #dress-code {
+    grid-area: dress;
+  }
+
+  #musica {
+    grid-area: musica;
+  }
+
+  #fotos {
+    grid-area: fotos;
+  }
+
+  .info-card {
+    min-height: 0;
   }
 
   .contribution-card {
-    grid-column: span 2;
+    align-content: start;
   }
 
   .account-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .info-card {
-    min-height: 21rem;
   }
 
   .map-frame iframe {

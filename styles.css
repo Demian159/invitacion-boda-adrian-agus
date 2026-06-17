@@ -707,6 +707,11 @@ h3 {
   gap: 1rem;
 }
 
+html.venue-view #tarjeta,
+html.venue-view .contribution-nav-link {
+  display: none;
+}
+
 .info-card {
   padding: 1.25rem;
 }
@@ -1132,6 +1137,11 @@ h3 {
       "tarjeta musica"
       "tarjeta fotos";
     align-items: stretch;
+  }
+
+  html.venue-view .info-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas: "dress musica fotos";
   }
 
   #tarjeta {

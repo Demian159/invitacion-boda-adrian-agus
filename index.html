@@ -43,7 +43,16 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=asistencia-destacada-1">
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.get("cache") === "1") {
+          document.documentElement.classList.add("venue-view");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css?v=venue-view-1">
   </head>
   <body class="intro-active">
     <div
@@ -95,7 +104,7 @@
           <a href="#ubicacion">Ubicación</a>
           <a href="#experiencia">Lo que te espera</a>
           <a href="#dress-code">Dress code</a>
-          <a href="#tarjeta">Tarjeta</a>
+          <a class="contribution-nav-link" href="#tarjeta">Tarjeta</a>
           <a href="#musica">Música</a>
           <a href="#fotos">Fotos</a>
           <a href="#asistencia">Asistencia</a>
